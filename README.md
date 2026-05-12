@@ -6,7 +6,11 @@ The actual FPS mod is by [Tavreth](https://www.nexusmods.com/ghostreconwildlands
 
 ## Download
 
-Grab the latest installer from the [Releases page](https://github.com/bulanmaster/GRW-FPS-Swapper/releases). Run the `.exe`, pick an install location, done. The app auto-updates itself on subsequent launches.
+Three options on the [Releases page](https://github.com/bulanmaster/GRW-FPS-Swapper/releases):
+
+- **Installer** (`GRW FPS Swapper Setup X.Y.Z.exe`) — recommended. Pick an installation dir, done. New versions download silently in the background and install the next time you quit the app.
+- **Portable** (`GRW FPS Swapper X.Y.Z.exe`) — single self-contained .exe. Drop it in any folder and run. The `mod/`, `backups/`, and `state.json` files are created next to the .exe. Auto-updates the same way as the installer.
+- **Zip** (`GRW FPS Swapper-X.Y.Z-win.zip`) — extract the archive and run `GRW FPS Swapper.exe` from inside. State lives in the extracted folder. Updates are manual — download a new zip when you want to upgrade.
 
 ## Usage
 
