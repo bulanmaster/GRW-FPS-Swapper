@@ -17,10 +17,16 @@ let win;
 
 // Sit next to the running app rather than inside userData so the user can
 // inspect everything easily. In dev that's the project folder; when packaged,
-// it's the install dir alongside the .exe.
-const APP_BASE_DIR = () => app.isPackaged
-  ? path.dirname(app.getPath('exe'))
-  : app.getAppPath();
+// it's the install dir alongside the .exe. For the portable target the .exe
+// self-extracts to a temp folder, so `app.getPath('exe')` would point at a
+// transient location — electron-builder sets PORTABLE_EXECUTABLE_DIR to the
+// folder the user actually placed the .exe in; honor that first.
+const APP_BASE_DIR = () => {
+  if (process.env.PORTABLE_EXECUTABLE_DIR) {
+    return process.env.PORTABLE_EXECUTABLE_DIR;
+  }
+  return app.isPackaged ? path.dirname(app.getPath('exe')) : app.getAppPath();
+};
 
 const MOD_DROP_DIR = () => path.join(APP_BASE_DIR(), 'mod');
 const MOD_EXTRACTED_DIR = (versionKey) => path.join(MOD_DROP_DIR(), 'extracted-' + versionKey);

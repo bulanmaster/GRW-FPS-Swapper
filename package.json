@@ -40,6 +40,11 @@
         "repo": "GRW-FPS-Swapper"
       }
     ],
+    "files": [
+      "main/**/*",
+      "renderer/**/*",
+      "package.json"
+    ],
     "directories": {
       "output": "dist"
     },
@@ -47,7 +52,11 @@
       "**/7zip-bin/**/*"
     ],
     "win": {
-      "target": "nsis",
+      "target": [
+        "nsis",
+        "portable",
+        "zip"
+      ],
       "icon": "renderer/assets/icon.ico"
     },
     "nsis": {
