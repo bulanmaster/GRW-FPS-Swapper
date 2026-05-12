@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# User runtime state — never commit
+mod/
+backups/
+state.json
+
+# IDE / tooling
+.idea/
+.vscode/
+.claude/
+
+# OS junk
+Thumbs.db
+.DS_Store

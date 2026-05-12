@@ -1,0 +1,67 @@
+{
+  "name": "grw-fps-swapper",
+  "version": "0.0.1",
+  "description": "GRW FPS Swapper — toggle the Ghost Recon Wildlands first-person view mod",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bulanmaster/GRW-FPS-Swapper.git"
+  },
+  "main": "main/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "start:hotreload": "electronmon .",
+    "icon": "node -e \"require('png-to-ico').default('renderer/assets/grw-fps-swapper-icon.png').then(b => require('fs').writeFileSync('renderer/assets/icon.ico', b))\"",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
+    "build:all": "electron-builder --win --linux",
+    "release:win": "electron-builder --win --publish always"
+  },
+  "keywords": [],
+  "author": "bulanmaster",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "7zip-min": "^3.0.1",
+    "electron-updater": "^6.8.3"
+  },
+  "devDependencies": {
+    "electron": "42.0.0-alpha.5",
+    "electron-builder": "^26.0.12",
+    "electronmon": "^2.0.3",
+    "png-to-ico": "^3.0.1"
+  },
+  "build": {
+    "appId": "com.bulanmaster.grw-fps-swapper",
+    "productName": "GRW FPS Swapper",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "bulanmaster",
+        "repo": "GRW-FPS-Swapper"
+      }
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "asarUnpack": [
+      "**/7zip-bin/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "renderer/assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": false,
+      "include": "build/installer.nsh"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  }
+}

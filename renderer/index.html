@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+  <title>GRW FPS swapper</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header-container"></div>
+    <div id="left-container" class="outer-container">
+      <div class="inner-container"></div>
+    </div>
+    <div id="right-container"></div>
+    <div id="footer-left-container">
+      <h3 id="footer-header"></h3>
+      <p id="footer-description"></p>
+    </div>
+    <div id="footer-right-container">
+      <button id="apply" class="footer-buttons hidden">
+        <span class="visual-button">F</span>
+        Apply
+      </button>
+      <button id="exitBack" class="footer-buttons">
+        <span class="visual-button esc">Esc</span>
+        <span id="exitBackText">Exit</span>
+      </button>
+    </div>
+
+    <div id="popup-container" class="container hidden">
+      <div id="popup">
+        <div id="popup-header">Warning</div>
+        <div id="popup-content">Are you sure you want to quit to desktop?</div>
+        <div id="popup-accept" class="popup-buttons selected">Accept</div>
+        <div id="popup-cancel" class="popup-buttons">Cancel</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
